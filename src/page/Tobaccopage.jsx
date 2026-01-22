@@ -1,18 +1,19 @@
-import React from "react";
-import { Dairy } from "../data";
-export default function Dairypage() {
-  return (
+import React from 'react'
+import { Tobacco } from '../data';
+
+export default function Tobaccopage() {
+return (
     <div>
       <div className="w-[1220px] mx-auto">
         <section className="rounded-[3px] shadow-[0_2px_2px_0_rgba(0,0,0,0.22)]">
           <div className="p-3 bg-white border-[.8px] border-[rgb(232,232,232)]">
             <h1 className="text-[13px] font-semibold leading-[19.5px] text-[rgb(31,31,31)]">
-              Dairy, Bread & Eggs
+              Rolling paper & tobacco
             </h1>
           </div>
           <div className="h-[75vh] overflow-scroll overflow-x-hidden scroll-smooth bg-[rgb(248,248, 251)]">
             <div className="grid grid-cols-6 pb-5">
-              {Dairy.map((product, idx) => {
+              {Tobacco.map((product, idx) => {
                 return (
                 <div className="p-1.5">
                    <div

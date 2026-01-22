@@ -51,7 +51,9 @@ export default function ProductBox() {
         <section>
           <div className='text-2xl font-semibold text-[rgb(28,28,28)] px-3 h-[62px] flex items-center justify-between' >
             Rolling paper & tobacco
-            <span className="text-[14px] text-[rgb(12,131,31)] cursor-pointer">See all</span>
+             <Link to="/tobacco">
+              <span className="text-[14px] text-[rgb(12,131,31)] cursor-pointer">See all</span>
+            </Link>
           </div>
           <div>
           </div>
@@ -89,13 +91,15 @@ export default function ProductBox() {
         <section>
           <div className='text-2xl font-semibold text-[rgb(28,28,28)] px-3 h-[62px] flex items-center justify-between' >
             Snacks & Munchies
-            <span className="text-[14px] text-[rgb(12,131,31)] cursor-pointer">See all</span>
+            <Link to="/munchies">
+              <span className="text-[14px] text-[rgb(12,131,31)] cursor-pointer">See all</span>
+            </Link>
           </div>
           <div>
 
           </div>
           <div className='grid grid-cols-7 pb-5'>
-            {Munchies.map(
+            {Munchies.slice(0, 7).map(
               (product, idx) => {
                 return <div key={idx} className='rounded-lg w-[179px] pb-3 border-[0.5px] border-[rgb(232,232,232)] shadow-[2px_2px_8px_rgba(0,0,0,0.04)]'>
                   <div className='flex justify-center' >
@@ -127,13 +131,15 @@ export default function ProductBox() {
         <section>
           <div className='text-2xl font-semibold text-[rgb(28,28,28)] px-3 h-[62px] flex items-center justify-between' >
             Hookah
-            <span className="text-[14px] text-[rgb(12,131,31)] cursor-pointer">See all</span>
+            <Link to="/">
+              <span className="text-[14px] text-[rgb(12,131,31)] cursor-pointer">See all</span>
+            </Link>
           </div>
           <div>
 
           </div>
           <div className='grid grid-cols-7 pb-5'>
-            {Hookah.map(
+            {Hookah.slice(0, 7).map(
               (product, idx) => {
                 return <div key={idx} className='rounded-lg w-[179px] pb-3 border-[0.5px] border-[rgb(232,232,232)] shadow-[2px_2px_8px_rgba(0,0,0,0.04)]'>
                   <div className='flex justify-center' >
@@ -165,11 +171,13 @@ export default function ProductBox() {
         <section>
           <div className='text-2xl font-semibold text-[rgb(28,28,28)] px-3 h-[62px] flex items-center justify-between' >
             Mouth fresheners
-            <span className="text-[14px] text-[rgb(12,131,31)] cursor-pointer">See all</span>
+           <Link to="/mouthfreshner">
+              <span className="text-[14px] text-[rgb(12,131,31)] cursor-pointer">See all</span>
+            </Link>
           </div>
           <div>
           </div>  <div className='grid grid-cols-7 pb-5'>
-            {Mouthfresheners.map(
+            {Mouthfresheners.slice(0,7).map(
               (product, idx) => {
                 return <div key={idx} className='rounded-lg w-[179px] pb-3 border-[0.5px] border-[rgb(232,232,232)] shadow-[2px_2px_8px_rgba(0,0,0,0.04)]'>
                   <div className='flex justify-center' >
@@ -201,10 +209,12 @@ export default function ProductBox() {
         <section>
           <div className='text-2xl font-semibold text-[rgb(28,28,28)] px-3 h-[62px] flex items-center justify-between' >
             Cold Drinks & Juices
-            <span className="text-[14px] text-[rgb(12,131,31)] cursor-pointer">See all</span>
+            <Link to="/colddrinks">
+              <span className="text-[14px] text-[rgb(12,131,31)] cursor-pointer">See all</span>
+            </Link>
           </div>
           <div className='grid grid-cols-7 pb-5'>
-            {ColdDrinks.map(
+            {ColdDrinks.slice(0, 7).map(
               (product, idx) => {
                 return <div key={idx} className='rounded-lg w-[179px] pb-3 border-[0.5px] border-[rgb(232,232,232)] shadow-[2px_2px_8px_rgba(0,0,0,0.04)]'>
                   <div className='flex justify-center' >
@@ -237,11 +247,13 @@ export default function ProductBox() {
         <section>
           <div className='text-2xl font-semibold text-[rgb(28,28,28)] px-3 h-[62px] flex items-center justify-between' >
             Candies & Gums
-            <span className="text-[14px] text-[rgb(12,131,31)] cursor-pointer">See all</span>
+             <Link to="/candies">
+              <span className="text-[14px] text-[rgb(12,131,31)] cursor-pointer">See all</span>
+            </Link>
           </div>
           <div>
           </div> <div className='grid grid-cols-7 pb-5'>
-            {Candies.map(
+            {Candies.slice(0, 7).map(
               (product, idx) => {
                 return <div key={idx} className='rounded-lg w-[179px] pb-3 border-[0.5px] border-[rgb(232,232,232)] shadow-[2px_2px_8px_rgba(0,0,0,0.04)]'>
                   <div className='flex justify-center' >

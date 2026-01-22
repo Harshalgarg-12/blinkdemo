@@ -5,6 +5,11 @@ import MainLayout from './page/MainLayout.jsx'
 import Home from './page/Home.jsx'
 import AddTocart from './page/AddTocart.jsx'
 import Dairypage from './page/Dairypage.jsx'
+import Tobaccopage from './page/Tobaccopage.jsx'
+import Munchiespage from './page/Munchiespage.jsx'
+import Mouthfreshnerpage from './page/Mouthfreshnerpage.jsx'
+import Coldrinkpage from './page/Coldrinkpage.jsx'
+import Candiespage from './page/Candiespage.jsx'
 
 export default function App() {
   const routers = createBrowserRouter([
@@ -23,6 +28,26 @@ export default function App() {
         {
           path: 'dairy',
           element: <Dairypage />
+        },
+        {
+          path: 'tobacco',
+          element:<Tobaccopage/>
+        },
+        {
+          path:'munchies',
+          element:<Munchiespage/>
+        },
+        {
+          path:"mouthfreshner",
+          element:<Mouthfreshnerpage/>
+        },
+        {
+          path:'colddrinks',
+          element:<Coldrinkpage/>
+        },
+        {
+          path:'candies',
+          element:<Candiespage/>
         }
       ]
     }
