@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+#search-input:focus-visible {
+  outline: none;
+}
