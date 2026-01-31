@@ -10,6 +10,7 @@ import Munchiespage from './page/Munchiespage.jsx'
 import Mouthfreshnerpage from './page/Mouthfreshnerpage.jsx'
 import Coldrinkpage from './page/Coldrinkpage.jsx'
 import Candiespage from './page/Candiespage.jsx'
+import Hookahpage from './page/Hookahpage.jsx'
 
 export default function App() {
   const routers = createBrowserRouter([
@@ -48,6 +49,10 @@ export default function App() {
         {
           path:'candies',
           element:<Candiespage/>
+        },
+        {
+          path:'hookah',
+          element:<Hookahpage/>
         }
       ]
     }
