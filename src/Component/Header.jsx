@@ -4,50 +4,105 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { ReactTyped } from "react-typed";
 import { PiShoppingCart } from "react-icons/pi";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import {
+  selectCartItems,
+  selectCartTotalPrice,
+} from "../redux/reducer/cartSlice";
+
+import CartToggel from "./CartToggel";
+
 export default function Header() {
+  const cartItems = useSelector(selectCartItems);
+  const totalPrice = useSelector(selectCartTotalPrice);
+  const [isCartOpen, setIsCartOpen] = React.useState(false);
+
+  const itemsCount = cartItems.length;
+
   return (
-    <div className="w-full border-b border-[#eeeeee]  bg-white px-3 py-5 z-20  sticky top-0 grid grid-cols-5  items-center ">
-      <div className=" hidden lg:flex justify-center items-center border-e border-[#eeeeee] h-full">
-       <Link to={'/'}>
-        <Logo />
-        </Link>
-      </div>
-      <div className="col-span-4 lg:col-auto">
-        <strong className="text-[18px] font-extrabold">
-          Delivery in 8 minutes
-        </strong>
-        <br />
-        <span className="text-[14px]">
-          15, Jawahar Nagar Colony, Bajaj ....
-        </span>
-      </div>
-      <div className="col-span-5 lg:col-span-2 p-2 order-1 lg:order-0">
-        <div className="rounded flex items-center gap-3 bg-gray-200  w-full p-3">
-          <IoIosSearch />
-          <div className="flex justify-center items-center gap-1">
-            Search <ReactTyped strings={["rice" ,"curd","egg","soap","atta"]} typeSpeed={100} backSpeed={50} loop={true} cursorChar={""} />
+    <>
+      <div className="w-full border-b border-[#eeeeee] bg-white px-3 pt-5 lg:py-5 z-20 sticky top-0 grid grid-cols-5 items-center">
+        {/* Logo (desktop) */}
+        <div className="hidden lg:flex justify-center items-center h-full">
+          <div className="w-fit grid items-center h-full border-e border-[#eeeeee] px-7">
+            <Link to="/">
+              <Logo />
+            </Link>
           </div>
-          {/* <input id="search-input" type="text" className="grow" /> */}
+        </div>
+
+        {/* Address */}
+        <div className="col-span-4 lg:col-auto">
+          <strong className="text-[18px] font-extrabold">
+            Delivery in 8 minutes
+          </strong>
+          <br />
+          <span className="text-[14px]">
+            15, Jawahar Nagar Colony, Bajaj ....
+          </span>
+        </div>
+
+        {/* Search */}
+        <div className="col-span-5 lg:col-span-2 p-2 order-1 lg:order-0">
+          <div className="rounded flex items-center gap-3 bg-gray-200 my-3 w-full p-3">
+            <IoIosSearch />
+            <div className="flex gap-1 text-sm">
+              Search{" "}
+              <ReactTyped
+                strings={["rice", "curd", "egg", "soap", "atta"]}
+                typeSpeed={100}
+                backSpeed={50}
+                loop
+                cursorChar=""
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="flex gap-3 justify-center items-center">
+          <FaRegUserCircle className="lg:hidden" fontSize={32} />
+
+          <span className="hidden lg:block font-semibold">Login</span>
+
+          {/* MOBILE CART -> /cart page  yha pr jb mobile me dekhenge to wo new page load kr dega*/}
+          <Link to="/cart" className="lg:hidden ">
+            <button className="flex items-center gap-2 px-3 py-2 rounded-md bg-[rgb(12,131,31)] text-white font-semibold">
+              <PiShoppingCart size={22} />
+              {itemsCount === 0 ? (
+                <span className="text-sm">My Cart</span>
+              ) : (
+                <span className="text-sm">₹{totalPrice}</span>
+              )}
+            </button>
+          </Link>
+
+          {/* mobile se upper wale devices me  -> toggle drawer  yha pr cart togel hoga  */}
+          <button
+            type="button"
+            onClick={() => setIsCartOpen((prev) => !prev)}
+            className="hidden lg:flex items-center gap-2 px-4 py-2 rounded-md bg-[rgb(12,131,31)] text-white font-semibold relative shadow-sm"
+          >
+            <PiShoppingCart size={20} />
+            {itemsCount === 0 ? (
+              <span>My Cart</span>
+            ) : (
+              <span>₹{totalPrice}</span>
+            )}
+
+            {itemsCount > 0 && (
+              <span className="absolute -top-2 -right-5 text-white bg-[rgb(12,131,31)] text-xs px-2 py-[2px] rounded-full font-semibold">
+                {itemsCount}
+              </span>
+            )}
+          </button>
         </div>
       </div>
-      <div className="flex gap-3 justify-center items-center ">
-        <FaRegUserCircle className="lg:hidden" fontSize={40} />
-
-        <span className="hidden lg:block">
-            Login
-        </span>
-        <Link to="/cart"> 
-        <button className="hidden lg:flex items-center gap-2 px-2 py-4 bg-gray-100 rounded">
-           <PiShoppingCart/>
-            My Cart
-        </button>
-        </Link>
-      </div>
-      
-    </div>
+      <CartToggel open={isCartOpen} onClose={() => setIsCartOpen(false)} />
+    </>
   );
 }
 
+/* ---------------- LOGO ---------------- */
 const Logo = () => {
   return (
     <svg

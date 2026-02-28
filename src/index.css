@@ -8,3 +8,13 @@
 #search-input:focus-visible {
   outline: none;
 }
+/* Remove default slick arrows (before pseudo element) */
+.slick-prev:before,
+.slick-next:before {
+  content: none !important;
+  display: none !important;
+}
+.slick-track {
+  display: flex !important;
+  gap:20px !important ;
+}
