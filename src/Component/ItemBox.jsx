@@ -53,7 +53,7 @@ export default function ItemBox({ product }) {
           </span>
 
           {quantity === 0 ? (
-            // ADD button jab cart me nahi hai
+            // ADD button jab cartcitem me nahi hai tb hi dikhe 
             <button
               onClick={handleAdd}
               className="text-[13px] text-[#318616] w-[66px] h-[31px] rounded-md font-semibold border border-[#318616] bg-[rgb(247,255,249)] cursor-pointer"
